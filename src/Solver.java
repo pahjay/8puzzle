@@ -1,6 +1,7 @@
 /**
  * Created by ryan on 2/17/17.
  */
+/**
 public class Solver {
     public Solver(Board initial) { // find a solution to the initial board (using the A* algorithm)
 
@@ -20,3 +21,4 @@ public class Solver {
 
     public static void main(String[] args){}
 }
+ */
