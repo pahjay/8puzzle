@@ -116,11 +116,13 @@ public class Board {
         return true;
 
     }
+/*
 
     public Iterable<Board> neighbors() // all neighboring boards
     {
 
     }
+*/
 
     public String toString() // string representation of this board (in the output format specified below
     {
@@ -179,10 +181,10 @@ public class Board {
 
          int[][] test = copy(unsolved);
 
-        Board a = new Board(partialSolved);
+        Board a = new Board(unsolved);
         Board b = new Board(partialSolved1);
 
-        System.out.println(a.equals(b));
-        System.out.println();
+        Solver solverObj = new Solver(a);
+
     }
 }
