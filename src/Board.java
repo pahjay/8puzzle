@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Stack;
 
 /**
  * Created by ryan on 2/17/17.
@@ -116,25 +119,77 @@ public class Board {
         return true;
 
     }
-/*
+
 
     public Iterable<Board> neighbors() // all neighboring boards
     {
+       Stack<Board> boardStack = new Stack<>();
+       boolean isFound = false;
+       int i = 0, j = 0;
+
+       for (i = 0; i < board.length - 1; i++)
+       {
+           for (j = 0; j < board.length - 1; j++)
+           {
+               if (board[i][j] == 0) isFound = true;
+           }
+       }
+
+        if (isGoal())
+        {
+
+            // boardStack.push(new Board(temp));
+            return boardStack;
+        }
+
+       // right
+       if (j + 1 <= board.length)
+       {
+           int[][] temp = copy(board);
+           exchange(temp, i, j, i, j + 1);
+           boardStack.push(new Board(temp));
+       }
+
+        // left
+        if (j - 1 >= 0)
+        {
+            int[][] temp = copy(board);
+            exchange(temp, i , j , i , j - 1);
+            boardStack.push(new Board(temp));
+        }
+
+        // down
+        if (i + 1 <= board.length)
+        {
+            int[][] temp = copy(board);
+            exchange(temp, i , j , i + 1, j);
+            boardStack.push(new Board(temp));
+        }
+
+        // up
+        if (i - 1 >= 0)
+        {
+            int[][] temp = copy(board);
+            exchange(temp, i , j , i - 1, j);
+            boardStack.push(new Board(temp));
+        }
+
+        return boardStack;
 
     }
-*/
+
 
     public String toString() // string representation of this board (in the output format specified below
     {
         StringBuilder s = new StringBuilder();
-        s.append(N + "/n");
+        s.append(N + "\n");
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
             {
                 s.append(String.format("%2d", board[i][j]));
             }
-            s.append("/n");
+            s.append("\n");
         }
         return s.toString();
     }
@@ -157,10 +212,11 @@ public class Board {
 
     private void exchange(int[][] copy, int i , int j, int ii, int jj)
     {
-        int temp = copy[i][j];
-        copy[i][j] = copy[ii][jj];
-        copy[ii][jj] = temp;
+        int temp = copy[i-1][j-1];
+        copy[i-1][j-1] = copy[ii-1][jj-1];
+        copy[ii-1][jj-1] = temp;
     }
+
 
     public static void main(String[] args)
     {
