@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f39be3a6-79c9-4651-9622-8e4fe019681d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MinPQ.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/8puzzle/Board.class" afterPath="$PROJECT_DIR$/out/production/8puzzle/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/8puzzle/Solver$SearchNode.class" afterPath="$PROJECT_DIR$/out/production/8puzzle/Solver$SearchNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/8puzzle/Solver.class" afterPath="$PROJECT_DIR$/out/production/8puzzle/Solver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Board.java" afterPath="$PROJECT_DIR$/src/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Solver.java" afterPath="$PROJECT_DIR$/src/Solver.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/8puzzle.zip" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +62,8 @@
           <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Board.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1953">
-                  <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+                <state relative-caret-position="84">
+                  <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -547,6 +541,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -583,6 +578,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -619,6 +615,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -655,6 +652,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -683,6 +681,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -711,6 +710,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -739,6 +739,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -767,6 +768,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="true" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -807,6 +809,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="42">
             <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -872,8 +875,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1953">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
