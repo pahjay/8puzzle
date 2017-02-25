@@ -1,14 +1,11 @@
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Stack;
 
 /**
  * Created by ryan on 2/17/17.
  */
 public class Board {
-    Board[] maxPQ;
-    int[][] board = new int[0][];
-    int N; // size of the array
+    private int[][] board;
+    private int N; // size of the array
 
     public Board(int[][] blocks)
     { // construct a board from an n-by-n array of blocks
@@ -49,8 +46,8 @@ public class Board {
      * |yv-yx| + |xv -xx|
      * add individual M-score to total
      **/
-    public int manhatten()
-    { // sum of Manhatten distances between blocks and goal
+    public int manhattan()
+    { // sum of Manhattan distances between blocks and goal
         int mScore = 0;
 
         for (int i = 0; i < board.length; i++)
@@ -75,27 +72,29 @@ public class Board {
 
     public boolean isGoal()
     { // is this board the goal board?
-        return hamming() == 0;
+        return manhattan() == 0;
     }
 
 
     public Board twin()
     { // a board that is obtained by exchanging any pair of blocks
         int[][] boardCopy = copy(board);
-        int i = 0, j = 0;
+        boolean twinFound = false;
 
-        while(boardCopy[i][j] == 0 || boardCopy[i][j+1] == 0)
+        for (int i = 0; i < N; i++)
         {
-            j++;
-            if(j > boardCopy.length - 1)
+            for (int j = 0; j < N - 1; j++)
             {
-                j = 0;
-                i++;
+                if (board[i][j] != 0 && board[i][j+1] != 0)
+                {
+                    exchange(boardCopy, i , j, i , j + 1);
+                    twinFound = true;
+                    break;
+                }
             }
-
+            if (twinFound) break;
         }
 
-        exchange(boardCopy, i , j, i , j + 1);
         Board twinBoard = new Board(boardCopy);
 
         return twinBoard;
@@ -108,6 +107,7 @@ public class Board {
         if (y == null) return false;
         if (y.getClass() != this.getClass()) return false;
         Board that = (Board) y;
+        if (this.board.length != that.board.length) return false;
 
         for(int i = 0; i < this.board.length; i++)
         {
@@ -125,69 +125,73 @@ public class Board {
     {
        Stack<Board> boardStack = new Stack<>();
        boolean isFound = false;
-       int i = 0, j = 0;
+       int i = 0, j = 0, l = 0, k = 0;
 
-       for (i = 0; i < board.length - 1; i++)
+       for (i = 0; i < board.length; i++)
        {
-           for (j = 0; j < board.length - 1; j++)
+           for (j = 0; j < board.length; j++)
            {
-               if (board[i][j] == 0) isFound = true;
+               if (board[i][j] == 0)
+               {
+                   l = i;
+                   k = j;
+                   isFound = true;
+                   break;
+               }
            }
+           if (isFound)
+               break;
        }
 
-        if (isGoal())
-        {
 
-            // boardStack.push(new Board(temp));
-            return boardStack;
+        // right
+        if (k + 1 <= board.length - 1)
+        {
+            //System.out.println("right");;
+            int[][] temp = copy(board);
+            exchange(temp, l, k, l, k + 1);
+            boardStack.push(new Board(temp));
         }
 
-       // right
-       if (j + 1 <= board.length)
-       {
-           int[][] temp = copy(board);
-           exchange(temp, i, j, i, j + 1);
-           boardStack.push(new Board(temp));
-       }
-
         // left
-        if (j - 1 >= 0)
+        if (k - 1 >= 0)
         {
+            //System.out.println("left");
             int[][] temp = copy(board);
-            exchange(temp, i , j , i , j - 1);
+            exchange(temp, l, k, l, k - 1);
             boardStack.push(new Board(temp));
         }
 
         // down
-        if (i + 1 <= board.length)
+        if (l + 1 <= board.length - 1)
         {
+            //System.out.println("down");
             int[][] temp = copy(board);
-            exchange(temp, i , j , i + 1, j);
+            exchange(temp, l, k, l + 1, k);
             boardStack.push(new Board(temp));
         }
 
         // up
-        if (i - 1 >= 0)
+        if (l - 1 >= 0)
         {
+            //System.out.println("up");
             int[][] temp = copy(board);
-            exchange(temp, i , j , i - 1, j);
+            exchange(temp, l, k, l - 1, k);
             boardStack.push(new Board(temp));
         }
+
 
         return boardStack;
 
     }
 
 
-    public String toString() // string representation of this board (in the output format specified below
-    {
+    public String toString() {
         StringBuilder s = new StringBuilder();
         s.append(N + "\n");
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < N; j++)
-            {
-                s.append(String.format("%2d", board[i][j]));
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                s.append(String.format("%2d ", board[i][j]));
             }
             s.append("\n");
         }
@@ -212,35 +216,12 @@ public class Board {
 
     private void exchange(int[][] copy, int i , int j, int ii, int jj)
     {
-        int temp = copy[i-1][j-1];
-        copy[i-1][j-1] = copy[ii-1][jj-1];
-        copy[ii-1][jj-1] = temp;
+        int temp = copy[i][j];
+        copy[i][j] = copy[ii][jj];
+        copy[ii][jj] = temp;
     }
 
 
     public static void main(String[] args)
-    {
-        int[][] unsolved = {{8,1,3},
-                            {4,0,2},
-                            {7,6,5}};
-
-         int[][] solved = {{1,2,3},
-                           {4,5,6},
-                           {7,8,0}};
-
-         int[][] partialSolved = {{1,2,3},
-                                  {4,5,0},
-                                  {6,7,8}};
-        int[][] partialSolved1 = {{1,2,3},
-                {4,5,0},
-                {6,7,8}};
-
-         int[][] test = copy(unsolved);
-
-        Board a = new Board(unsolved);
-        Board b = new Board(partialSolved1);
-
-        Solver solverObj = new Solver(a);
-
-    }
+    { }
 }
